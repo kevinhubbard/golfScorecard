@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Golf Score</title>
+	<script type="text/javascript" src="./public/js/score.js"></script>
+</head>
+<body>
+	<form id="courseInfo">
+		<input type="text" id="courseName" placeholder="Course Name"> </br>
+		<input type="radio" id="9hole" name="gameLength" value="9"> 9 Holes </br>
+		<input type="radio" id="18hole" name="gameLength" value="18"> 18 Holes </br>
+		<input type="submit" name="startGame" value="Start Game">
+	</form>
+
+	<div id="scoreArea">
+		<h1>Course: <span id="course"></span></h1>
+		<h1>Strokes: <span id="strokeTotal"></span></h1>
+		<h1>Score: <span id="score"></span></h1>
+		<h1>Hole Stroke: <span id="holeStroke"></span></h1>
+
+		<label for="par">Par:</label>
+		<select id="par" name="par">
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>	
+		</select>
+
+		<button id="stroke" >Stroke</button>
+		<button id="hole">Finish Hole</button>
+
+		<div id="scoreCard">
+			
+		</div>
+	</div>
+
+</body>
+</html>
