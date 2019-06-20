@@ -6,18 +6,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById('courseName').value = '';
 	
 	const scoreArea = document.getElementById('scoreArea');
-	const strokeBtn = document.getElementById('stroke');
-	const holeBtn = document.getElementById('hole');
-
 	const courseEle = document.getElementById('course');
 	const strokeEle = document.getElementById('strokeTotal');
 	const scoreEle = document.getElementById('score');
 	const holeStrokeEle = document.getElementById('holeStroke');
+	const scorecardEle = document.getElementById('scoreCard');
+
+
+	const app = document.getElementById('appHere');
+
+	const strokeBtn = document.getElementById('stroke');
+	const holeBtn = document.getElementById('hole');
 	
 	let holePar = document.getElementById('par');
 	let totalStrokes = 0;
 	let holeStrokes = 0;
 	let score = 0;
+	//let holes = 0;
 
 	scoreArea.style.visibility = 'hidden';
 
@@ -38,10 +43,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}	else {
 			scoreEle.innerHTML = score;
 		}
-
+		updateScorecard();
 		holeStrokes = 0;
 		holeStrokeEle.innerHTML = '';
 
+		
 	};
 
 	var startGame = (e) => {
@@ -61,12 +67,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 		if (courseLen === "9") {
+			cl = parseInt(courseLen);
 			console.log('9 hole game started');
+			for (var i = 1; i <= cl; i++) {
+				const tabR = document.createElement('TR');
+				const tabD = document.createElement('TD');
+				tabD.textContent = i;
+				tabR.append(tabD);
+				app.append(tabR);
+			}
 		} else if (courseLen === "18") {
+			cl = parseInt(courseLen);
 			console.log('18 hole game started');
+			for(hole = 1; hole <= cl; hole++) {
+				const tabR = document.createElement('TR');
+				const tabD = document.createElement('TD');
+				tabD.textContent = hole;
+				tabR.append(tabD);
+				app.append(tabR);
+			}
 		} else {
 			console.log('somethig went wrong');
 		}
+	}
+
+	var updateScorecard = () => {
+		console.log('fack');
+		
+
 	}
 
 	strokeBtn.addEventListener('click', increaseStroke);
