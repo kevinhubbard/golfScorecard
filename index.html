@@ -16,10 +16,10 @@
 
 	<div id="scoreArea">
 		<h1>Course: <span id="course"></span></h1>
-		<h1>Strokes: <span id="strokeTotal"></span></h1>
-		<h1>Score: <span id="score"></span></h1>
+		<h1>Total Strokes: <span id="strokeTotal"></span></h1>
 		<h1>Hole Stroke: <span id="holeStroke"></span></h1>
-
+		<h1>Score: <span id="score"></span></h1>
+		
 		<label for="par">Par:</label>
 		<select id="par" name="par">
 			<option value="3">3</option>
@@ -30,18 +30,21 @@
 		<button id="stroke" >Stroke</button>
 		<button id="hole">Finish Hole</button>
 
-		<div id="scoreCard">
-			<table>
-				<tr >
-					<th>Hole:</th>
-					<th>Par:</th>
-					<th>Strokes:</th>
-				</tr>
-				<tr id="appHere">
 
+		<table id="scoreCard">
+			<thead>
+				<tr>
+					<th colspan="3"><span id="scoreCardHead"></span></th>
 				</tr>
-			</table>
-		</div>
+			</thead>
+			<tbody id="scoreCardBody">
+				<tr>
+					<td class="scorecardHeader">Hole</td>
+					<td class="scorecardHeader">Par</td>
+					<td class="scorecardHeader">Strokes</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
 </body>

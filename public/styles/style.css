@@ -1,4 +1,9 @@
 #scoreCard {
 	margin-top: 25px;
+	text-align: center;
+}
 
+.scorecardHeader{
+	padding: 0px 10px 0px 10px;
+	font-size: 20px;
 }

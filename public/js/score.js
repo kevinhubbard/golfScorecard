@@ -4,102 +4,89 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById('9hole').checked = false;
 	document.getElementById('18hole').checked = false;
 	document.getElementById('courseName').value = '';
-	
+	const courseInfo = document.getElementById('courseInfo');
 	const scoreArea = document.getElementById('scoreArea');
 	const courseEle = document.getElementById('course');
 	const strokeEle = document.getElementById('strokeTotal');
 	const scoreEle = document.getElementById('score');
 	const holeStrokeEle = document.getElementById('holeStroke');
 	const scorecardEle = document.getElementById('scoreCard');
-
-
-	const app = document.getElementById('appHere');
-
-	const strokeBtn = document.getElementById('stroke');
-	const holeBtn = document.getElementById('hole');
-	
-	let holePar = document.getElementById('par');
+	const scoreCardHead = document.getElementById('scoreCardHead');
+	const scoreCardBody = document.getElementById('scoreCardBody');
+	const incStrokeBtn = document.getElementById('stroke');
+	const finishHoleBtn = document.getElementById('hole');
 	let totalStrokes = 0;
 	let holeStrokes = 0;
 	let score = 0;
-	//let holes = 0;
+	let holeNum = 1;
+
 
 	scoreArea.style.visibility = 'hidden';
 
+
+	//COURSE OBJECT CONSTRUCTOR
+	function Course(name, holes) {
+		this.name = name;
+		this.holes = holes;
+	}
+
+
+	//FUNCTION THAT INCREASES STROKE COUNT ON BUTTON CLICK
 	var increaseStroke = () => {
+		finishHoleBtn.disabled = false;
 		totalStrokes += 1;
 		holeStrokes += 1;
 		strokeEle.innerHTML = totalStrokes;
 		holeStrokeEle.innerHTML = holeStrokes;
 	};
 
-	var calculateScore = () => {
-		var p = parseInt(holePar.value);
 
+	//FUNCTION THAT CALCULATES THE SCORE AFTER HOLE IS FINISHED
+	var calculateScore = () => {
+		let curHolePar = parseInt(document.getElementById('par').value);
+		let p = curHolePar;
+			
 		score += holeStrokes - p;
 
 		if(score === 0){
 			scoreEle.innerHTML = 'E';
-		}	else {
+		} else {
 			scoreEle.innerHTML = score;
 		}
-		updateScorecard();
+		updateScorecard(holeNum, p, holeStrokes);
+		holeNum++;
 		holeStrokes = 0;
 		holeStrokeEle.innerHTML = '';
-
-		
+		finishHoleBtn.disabled = true;
 	};
 
+
+	//FUNCTION THAT SHOWS SCORECARD
 	var startGame = (e) => {
 		e.preventDefault();
 
-		const courseInfo = document.getElementById('courseInfo');
 		courseInfo.style.display = 'none';
 		scoreArea.style.visibility = 'visible';
-
-
-		const courseName = document.getElementById('courseName').value;
-		const courseLen = document.querySelector('input[name="gameLength"]:checked').value;
-
-		console.log(`Course Name: ${courseName} \nCourse Length: ${courseLen}`);
-
-		courseEle.innerHTML = courseName;
-
-
-		if (courseLen === "9") {
-			cl = parseInt(courseLen);
-			console.log('9 hole game started');
-			for (var i = 1; i <= cl; i++) {
-				const tabR = document.createElement('TR');
-				const tabD = document.createElement('TD');
-				tabD.textContent = i;
-				tabR.append(tabD);
-				app.append(tabR);
-			}
-		} else if (courseLen === "18") {
-			cl = parseInt(courseLen);
-			console.log('18 hole game started');
-			for(hole = 1; hole <= cl; hole++) {
-				const tabR = document.createElement('TR');
-				const tabD = document.createElement('TD');
-				tabD.textContent = hole;
-				tabR.append(tabD);
-				app.append(tabR);
-			}
-		} else {
-			console.log('somethig went wrong');
-		}
+		courseObj = new Course(document.getElementById('courseName').value, parseInt(document.querySelector('input[name="gameLength"]:checked').value));
+		courseEle.innerHTML = courseObj.name;
+		scoreCardHead.innerHTML = courseObj.name;
 	}
 
-	var updateScorecard = () => {
-		console.log('fack');
-		
 
+	//FUNCTION THAT UPDATES SCORECARD
+	var updateScorecard = (hole, par, strokes) => {
+		var row = scoreCardBody.insertRow();
+		row.insertCell().innerHTML = hole;
+		row.insertCell().innerHTML = par;
+		row.insertCell().innerHTML = strokes;
 	}
 
-	strokeBtn.addEventListener('click', increaseStroke);
-	holeBtn.addEventListener('click', calculateScore);
+
+	//INCREASE STROKE EVENT LISTENER
+	incStrokeBtn.addEventListener('click', increaseStroke);
+	//FINISH OUT HOLE EVENT LISTENER
+	finishHoleBtn.addEventListener('click', calculateScore);
+	//SUBMIT COURSE INFO AND START GAME EVENT LISTENER
 	courseInfo.addEventListener('submit', startGame);
-
 
 });
