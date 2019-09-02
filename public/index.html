@@ -26,19 +26,20 @@
 			<h1>Total Strokes: <span id="strokeTotal"></span></h1>
 			<h1>Hole Stroke: <span id="holeStroke"></span></h1>
 			<h1>Score: <span id="score"></span></h1>
+
+			<div id='gameControls'>
+				<label for="par">Par:</label>
+				<select id="par" name="par">
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>	
+				</select>
 			
-			<label for="par">Par:</label>
-			<select id="par" name="par">
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>	
-			</select>
+				<button id="stroke" >Stroke</button>
+				<button id="hole">Finish Hole</button>
+			</div>
 
-			<button id="stroke" >Stroke</button>
-			<button id="hole">Finish Hole</button>
-
-
-			<table id="scoreCard">
+			<table id="scoreCard" rules="all">
 				<thead>
 					<tr>
 						<th colspan="3"><span id="scoreCardHead"></span></th>

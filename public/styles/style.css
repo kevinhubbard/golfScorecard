@@ -1,28 +1,39 @@
+body{
+	background-image: url('/images/golfBackground.jpg');
+	background-size: cover;
+}
 #app{
 	width: 400px;
 	height: 100%;
 	margin: 0 auto;
-	border: 2px solid black;
 }
 
 #infoForm{
 	text-align: center;
+	font-size: 20px;
 }
 #courseName{
 	border-radius: 25px;
+	font-size: 20px;
 	text-align: center;
-	width: 150px;
+	width: 200px;
+	height: 30px;
 }
 
 #startGame{
 	width: 100px;
 	background-color: lightgreen;
 	border-radius: 25px;
+	font-size: 20px;
+	width: 200px;
+	height: 30px;
 }
 
 #scoreCard {
 	margin-top: 25px;
 	text-align: center;
+	font-size: 20px;
+	background-color: white;
 }
 
 .scorecardHeader{
@@ -30,3 +41,9 @@
 	font-size: 20px;
 }
 
+#infoForm{
+	display: inline;
+}
+#scoreArea{
+	display: inline;
+}

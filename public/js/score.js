@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		holeStrokeEle.innerHTML = '';
 		finishHoleBtn.disabled = true;
 		holeEle.innerHTML = holeNum;
+		gameOverCheck(holeNum, courseObj.holes);
 	};
 
 
@@ -72,7 +73,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		scoreArea.style.visibility = 'visible';
 		courseObj = new Course(document.getElementById('courseName').value, parseInt(document.querySelector('input[name="gameLength"]:checked').value));
 		holeEle.innerHTML = holeNum;
-		scoreCardHead.innerHTML = courseObj.name;
+		if(courseObj.name === ''){
+			courseObj.name = 'Golfcard';
+			scoreCardHead.innerHTML = courseObj.name;
+		} else {
+			scoreCardHead.innerHTML = courseObj.name;
+		}
+		
 	}
 
 
@@ -82,6 +89,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		row.insertCell().innerHTML = hole + '.';
 		row.insertCell().innerHTML = par;
 		row.insertCell().innerHTML = strokes;
+	}
+
+	//GAME OVER CHECK GETS CALLED AFTER SCORECARD UPDATE
+	var gameOverCheck = (currentHole, totalHoles) => {
+		if(currentHole > totalHoles) {
+			console.log('Game Over.');
+			//REMOVE GAME CONTROLS FROM SCORECARD
+			document.getElementById('gameControls').remove();
+		}
 	}
 
 
