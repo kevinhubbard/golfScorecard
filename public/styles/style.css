@@ -49,4 +49,50 @@ body{
 		background-size: 100% 100%;
 
 	}
+
+	#app{
+		margin: 0 auto;
+		border: 2px solid blue;
+		width: 100%;
+	}
+
+	#scoreArea{
+		border: 2px solid red;
+		width:95%;
+	}
+
+	#gameControls{
+		display: block;
+		margin: 0 auto;
+		border: 2px solid red;
+
+	}
+	
+	#parLabel{
+		font-size: 35px;
+	}
+	#par{
+		display: inline-block;
+		background-color: green;
+		width: 80%;
+		height: 40px;
+		text-align: center;
+
+	}
+
+	#stroke{
+		display: block;
+		width: 100%;
+		height: 40px;
+	}
+	#hole{
+		display: block;
+		width: 100%;
+		height: 40px;
+	}
+
+	#scoreCard{
+		margin: 0 auto;
+		margin-top: 15px;
+	}
 }
