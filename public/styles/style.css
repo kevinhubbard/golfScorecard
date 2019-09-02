@@ -44,6 +44,6 @@ body{
 @media only screen and (max-width:750px) {
 	body{
 		background: url(/images/mobileBackground.jpg) no-repeat center center fixed;
-		background-size: cover;
+		background-size: 100% 100%;
 	}
 }
