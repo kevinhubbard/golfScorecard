@@ -1,6 +1,6 @@
 body{
-	background-image: url('/images/golfBackground.jpg');
-	background-size: cover;
+		background: url(/images/golfBackground.jpg) no-repeat center center fixed;
+		background-size: cover;
 }
 #app{
 	width: 400px;
@@ -41,9 +41,9 @@ body{
 	font-size: 20px;
 }
 
-#infoForm{
-	display: inline;
-}
-#scoreArea{
-	display: inline;
+@media only screen and (max-width:750px) {
+	body{
+		background: url(/images/mobileBackground.jpg) no-repeat center center fixed;
+		background-size: cover;
+	}
 }
