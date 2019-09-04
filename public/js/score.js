@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 	//COURSE OBJECT CONSTRUCTOR
-	function Course(name, holes) {
+	function Course(name, totalHoles) {
 		this.name = name;
-		this.holes = holes;
+		this.totalHoles = totalHoles;
 	}
 
 
@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	//FUNCTION THAT CALCULATES THE SCORE AFTER HOLE IS FINISHED
 	var calculateScore = () => {
 		let curHolePar = parseInt(document.getElementById('par').value);
-		let p = curHolePar;
-			
+		let p = curHolePar;	
 		score += holeStrokes - p;
 
 		if(score === 0){
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		holeStrokeEle.innerHTML = '';
 		finishHoleBtn.disabled = true;
 		holeEle.innerHTML = holeNum;
-		gameOverCheck(holeNum, courseObj.holes);
+		gameOverCheck(holeNum, courseObj.totalHoles);
 	};
 
 
@@ -71,7 +70,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		finishHoleBtn.disabled = true;
 		courseInfo.style.display = 'none';
 		scoreArea.style.visibility = 'visible';
-		courseObj = new Course(document.getElementById('courseName').value, parseInt(document.querySelector('input[name="gameLength"]:checked').value));
+		//courseObj = new Course(document.getElementById('courseName').value, parseInt(document.querySelector('input[name="gameLength"]:checked').value));
+		
+		courseObj = {
+			name: document.getElementById('courseName').value,
+			totalHoles: parseInt(document.querySelector('input[name="gameLength"]:checked').value),
+			hole: []
+		}
+
+		
+
 		holeEle.innerHTML = holeNum;
 		if(courseObj.name === ''){
 			courseObj.name = 'Golfcard';
@@ -89,6 +97,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		row.insertCell().innerHTML = hole + '.';
 		row.insertCell().innerHTML = par;
 		row.insertCell().innerHTML = strokes;
+
+		courseObj.hole[(hole - 1)] = {par: par, strokes: strokes};
+		console.log(courseObj);
 	}
 
 	//GAME OVER CHECK GETS CALLED AFTER SCORECARD UPDATE
