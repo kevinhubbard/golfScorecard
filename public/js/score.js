@@ -26,13 +26,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	scoreArea.style.visibility = 'hidden';
 
 
-	//COURSE OBJECT CONSTRUCTOR
-	function Course(name, totalHoles) {
-		this.name = name;
-		this.totalHoles = totalHoles;
-	}
-
-
 	//FUNCTION THAT INCREASES STROKE COUNT ON BUTTON CLICK
 	var increaseStroke = () => {
 		finishHoleBtn.disabled = false;
@@ -54,6 +47,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		} else {
 			scoreEle.innerHTML = score;
 		}
+
 		updateScorecard(holeNum, p, holeStrokes);
 		holeNum++;
 		holeStrokes = 0;
@@ -70,22 +64,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		finishHoleBtn.disabled = true;
 		courseInfo.style.display = 'none';
 		scoreArea.style.visibility = 'visible';
-		//courseObj = new Course(document.getElementById('courseName').value, parseInt(document.querySelector('input[name="gameLength"]:checked').value));
-		
+		holeEle.innerHTML = holeNum;
+
 		courseObj = {
-			name: document.getElementById('courseName').value,
+			courseName: document.getElementById('courseName').value,
 			totalHoles: parseInt(document.querySelector('input[name="gameLength"]:checked').value),
 			hole: []
 		}
-
 		
-
-		holeEle.innerHTML = holeNum;
-		if(courseObj.name === ''){
-			courseObj.name = 'Golfcard';
-			scoreCardHead.innerHTML = courseObj.name;
+		if(courseObj.courseName === ''){
+			courseObj.courseName = 'Golfcard';
+			scoreCardHead.innerHTML = courseObj.courseName;
 		} else {
-			scoreCardHead.innerHTML = courseObj.name;
+			scoreCardHead.innerHTML = courseObj.courseName;
 		}
 		
 	}
@@ -98,8 +89,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		row.insertCell().innerHTML = par;
 		row.insertCell().innerHTML = strokes;
 
-		courseObj.hole[(hole - 1)] = {par: par, strokes: strokes};
-		console.log(courseObj);
+		courseObj.hole[(hole - 1)] = {par: par, strokes: strokes}; 
+		courseObj.score = score;
 	}
 
 	//GAME OVER CHECK GETS CALLED AFTER SCORECARD UPDATE
@@ -110,6 +101,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			document.getElementById('gameControls').remove();
 			document.getElementById('scoreComponent1').remove();
 			document.getElementById('scoreComponent2').remove();
+
+			courseObj.totalStrokes = totalStrokes;
+			console.log(courseObj);
+			fetch('/', {
+				method: "POST",
+				body: JSON.stringify(courseObj),
+				headers: { 'Content-Type': 'application/json'}
+			});
 		}
 	}
 
