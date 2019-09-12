@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			console.log('Game Over.');
 			//REMOVE GAME CONTROLS FROM SCORECARD
 			document.getElementById('gameControls').remove();
-			document.getElementById('scoreComponent1').remove();
-			document.getElementById('scoreComponent2').remove();
+			document.getElementById('tableHeader').remove();
+			document.getElementById('scoreHeader').remove();
 
 			courseObj.totalStrokes = totalStrokes;
 			console.log(courseObj);
