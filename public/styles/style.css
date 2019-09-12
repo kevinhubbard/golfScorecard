@@ -42,6 +42,12 @@ body{
 }
 
 @media only screen and (max-width:750px) {
+	
+	button {
+  		-webkit-appearance: none;
+  		border-radius: 0;
+	}
+
 	body{
 		width: 100%;
 		height: 100%;
@@ -52,12 +58,12 @@ body{
 
 	#app{
 		margin: 0 auto;
-		border: 2px solid blue;
+		/* border: 2px solid blue; */
 		width: 95%;
 	}
 
 	#scoreArea{
-		border: 2px solid red;
+		/* border: 2px solid red; */
 		width:95%;
 	}
 
