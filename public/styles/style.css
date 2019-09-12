@@ -80,6 +80,7 @@ body{
 		text-align: center;
 		margin-top: 10px;
 		margin-bottom: 10px;
+		font-size: 30px;
 
 	}
 
@@ -89,6 +90,7 @@ body{
 		height: 60px;
 		margin-top: 10px;
 		margin-bottom: 10px;
+		font-size: 30px;
 	}
 	#hole{
 		display: block;
@@ -96,6 +98,7 @@ body{
 		height: 60px;
 		margin-top: 10px;
 		margin-bottom: 10px;
+		font-size: 30px;
 	}
 
 	#scoreCard{
