@@ -4,11 +4,10 @@
   "description": "Golf scorecard app.",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.0"
   },
-  "devDependencies": {
-    "mongoose": "^5.6.12"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
