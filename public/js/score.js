@@ -67,7 +67,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		courseInfo.style.display = 'none';
 		scoreArea.style.visibility = 'visible';
 		holeEle.innerHTML = holeNum;
-
+		/**/ 
+		document.getElementById('screenSize').innerHTML = window.screen.width;
 		courseObj = {
 			courseName: document.getElementById('courseName').value,
 			totalHoles: parseInt(document.querySelector('input[name="gameLength"]:checked').value),
