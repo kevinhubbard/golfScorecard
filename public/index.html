@@ -23,18 +23,33 @@
 
 
 		<div id="scoreArea">
-			<h1 id='scoreComponent1'>Hole: <span id="holeEle"></span></h1>
-			<h1>Total Strokes: <span id="strokeTotal"></span></h1>
-			<h1 id='scoreComponent2'>Hole Stroke: <span id="holeStroke"></span></h1>
-			<h1>Score: <span id="score"></span></h1>
+			<div id="status">
+				<table id="statusTable">
+					<tr>
+						<th>Hole</th>
+						<th>Strokes</th>
+					</tr>
+					<tr>
+						<td id='scoreComponent1'><span id="holeEle"></span></td>
+						<td id='scoreComponent2'><span id="holeStroke">0</span></td>
+					</tr>
+					<tr>
+						<th>Total Strokes</th>
+						<th>Score</th>
+					</tr>
+					<tr>
+						<td><span id="strokeTotal">0</span></td>
+						<td><span id="score">0</span></td>
+					</tr>
+				</table>
+			</div>
 
 			<div id='gameControls'>
 				<form>
-					<label id="parLabel" for="par">Par:</label>
 					<select id="par" name="par">
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>	
+						<option value="3">Par: 3</option>
+						<option value="4">Par: 4</option>
+						<option value="5">Par: 5</option>	
 					</select>
 			
 					<button id="stroke" >Stroke</button>

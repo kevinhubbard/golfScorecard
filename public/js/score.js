@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		updateScorecard(holeNum, p, holeStrokes);
 		holeNum++;
 		holeStrokes = 0;
-		holeStrokeEle.innerHTML = '';
+		holeStrokeEle.innerHTML = '0';
 		finishHoleBtn.disabled = true;
 		holeEle.innerHTML = holeNum;
 		gameOverCheck(holeNum, courseObj.totalHoles);

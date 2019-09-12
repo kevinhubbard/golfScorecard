@@ -29,6 +29,21 @@ body{
 	height: 30px;
 }
 
+#status{
+	margin: 0 auto;
+	text-align: center;
+}
+
+option{
+	text-align: center;
+	text-align-last: center;
+}
+
+#statusTable{
+	background-color: white;
+	margin: 0 auto;
+}
+
 #scoreCard {
 	margin-top: 25px;
 	text-align: center;
@@ -40,6 +55,8 @@ body{
 	padding: 0px 10px 0px 10px;
 	font-size: 20px;
 }
+
+
 
 @media only screen and (max-width:750px) {
 
@@ -70,25 +87,17 @@ body{
 
 	}
 	
-	#parLabel{
-		font-size: 35px;
-		display: inline;
-	}
+
 	#par{
-		display: inline;
+		display: inline-block;
 		background-color: green;
-		width: 75%;
+		width: 100%;
 		height: 60px;
 		text-align: center;
 		margin-top: 10px;
 		margin-bottom: 10px;
 		font-size: 30px;
 
-	}
-
-	input[type="button"] {
-		-webkit-appearance: none;
-		border-radius: 0;
 	}
 
 	#stroke{
