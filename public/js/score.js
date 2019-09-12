@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 	//FUNCTION THAT INCREASES STROKE COUNT ON BUTTON CLICK
-	var increaseStroke = () => {
+	var increaseStroke = (e) => {
+		e.preventDefault();
 		finishHoleBtn.disabled = false;
 		totalStrokes += 1;
 		holeStrokes += 1;
@@ -37,7 +38,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 	//FUNCTION THAT CALCULATES THE SCORE AFTER HOLE IS FINISHED
-	var calculateScore = () => {
+	var calculateScore = (e) => {
+		e.preventDefault();
 		let curHolePar = parseInt(document.getElementById('par').value);
 		let p = curHolePar;	
 		score += holeStrokes - p;
