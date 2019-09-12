@@ -86,6 +86,11 @@ body{
 
 	}
 
+	input[type="button"] {
+		-webkit-appearance: none;
+		border-radius: 0;
+	}
+
 	#stroke{
 		display: block;
 		width: 100%;
@@ -93,7 +98,6 @@ body{
 		margin-top: 10px;
 		margin-bottom: 10px;
 		font-size: 30px;
-		border-radius: none;
 	}
 	#hole{
 		display: block;
@@ -102,7 +106,6 @@ body{
 		margin-top: 10px;
 		margin-bottom: 10px;
 		font-size: 30px;
-		border-radius: none;
 	}
 
 	#scoreCard{
