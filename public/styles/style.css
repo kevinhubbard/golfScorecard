@@ -79,28 +79,28 @@ th{
 
 @media only screen and (max-width:750px) {
 
-
-
-
 	#app{
 		margin: 0 auto;
-		/* border: 2px solid blue; */
+		margin-top: 10px;
 		width: 75%;
 		height: 100%;
 	}
 
 	#courseInfo{
-	margin-right: 10px;
-}
+		margin-right: 10px;
+		margin-left: 10px;
+	}
 
 	#courseName{
 		width: 90%;
-		height: 5vh;
+		height: 55px;
+		font-size: 30px;
 	}
 
 	#startGame{
 		width: 90%;
-		height: 5vh;
+		height: 55px;
+		font-size: 30px;
 	}
 	
 	label{
