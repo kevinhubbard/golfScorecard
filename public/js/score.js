@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 		if(score === 0){
 			scoreEle.innerHTML = 'E';
+		} else if (score > 0) {
+			scoreEle.innerHTML = '+'+score;
 		} else {
 			scoreEle.innerHTML = score;
 		}
@@ -64,22 +66,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	var startGame = (e) => {
 		e.preventDefault();
 		finishHoleBtn.disabled = true;
-		courseInfo.style.display = 'none';
+
+		if(document.getElementById('courseName').value === ''){
+			courseName = 'Golfcard';
+			scoreCardHead.innerHTML = courseName;
+		} else {
+			courseName = document.getElementById('courseName').value;
+			scoreCardHead.innerHTML = courseName;
+		}
+
+		
 		scoreArea.style.visibility = 'visible';
 		holeEle.innerHTML = holeNum;
+
+
 		courseObj = {
-			courseName: document.getElementById('courseName').value,
+			courseName: courseName,
 			totalHoles: parseInt(document.querySelector('input[name="gameLength"]:checked').value),
 			hole: []
 		}
 		
-		if(courseObj.courseName === ''){
-			courseObj.courseName = 'Golfcard';
-			scoreCardHead.innerHTML = courseObj.courseName;
-		} else {
-			scoreCardHead.innerHTML = courseObj.courseName;
-		}
-		
+		document.getElementById('infoForm').remove();
 	}
 
 
@@ -90,7 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		row.insertCell().innerHTML = par;
 		row.insertCell().innerHTML = strokes;
 
-		courseObj.hole[(hole - 1)] = {par: par, strokes: strokes}; 
+		courseObj.hole[(hole - 1)] = {hole: hole, par: par, strokes: strokes}; 
 		courseObj.score = score;
 	}
 
