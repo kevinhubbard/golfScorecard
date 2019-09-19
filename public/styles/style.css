@@ -16,10 +16,11 @@ body{
 	border-radius: 20px;
 	
 }
-	#courseInfo{
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
+
+#courseInfo{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 
 #courseName{
 	border-radius: 25px;
@@ -70,24 +71,18 @@ th{
 @media only screen and (max-width:750px) {
 
 
-	body{
-		width: 100%;
-		height: 100%;
-		background: url(/images/mobileBackground.jpg) no-repeat center center fixed;
-		background-size: 100% 100%;
-		background-attachment: initial;
-
-	}
-
 
 
 	#app{
 		margin: 0 auto;
 		/* border: 2px solid blue; */
-		width: 95%;
+		width: 75%;
 		height: 100%;
 	}
 
+	#courseInfo{
+	margin-right: 10px;
+}
 
 	#courseName{
 		width: 90%;
