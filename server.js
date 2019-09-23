@@ -8,8 +8,9 @@ const port = process.env.PORT || 8888;
 
 
 
-app.use(express.static(__dirname + '/public/'));
-app.set('view engine', 'html');
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public/views');
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -22,6 +23,20 @@ app.post('/', (req,res) => {
 	const newGame = new Game({date: Date.now(), courseName: req.body.courseName, totalHoles: req.body.totalHoles, hole: req.body.hole, totalStrokes: req.body.totalStrokes, score: req.body.score});
 	newGame.save();
 
+});
+
+app.get('/api', (req,res) =>{
+
+	Game.find({}, (err, games) => {
+		res.render('api', {games: games});
+	});
+	
+});
+
+app.get('/json', (req,res) => {
+		Game.find({}, (err, games) => {
+		res.json(games);
+	});
 });
 
 
