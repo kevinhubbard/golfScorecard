@@ -1,12 +1,10 @@
 const express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_26mvj5w7:818ip97apf8gjh0eq5j7gvj5ht@ds217548.mlab.com:17548/heroku_26mvj5w7', {useNewUrlParser: true});
 const app = express();
-const Game = mongoose.model('Game', {date: Date, courseName: String, totalHoles: Number, hole: Array, totalStrokes: Number, score: Number});
 
 const index = require('./routes/index.js');
+const scores = require('./routes/scores.js');
 
 const port = process.env.PORT || 8888;
 
@@ -20,15 +18,9 @@ app.use(bodyParser.json());
 
 
 app.use('/', index);
+app.use('/scores', scores);
 
 
-app.get('/api', (req,res) =>{
-
-	Game.find({}, (err, games) => {
-		res.render('api', {games: games});
-	});
-	
-});
 
 app.get('/json', (req,res) => {
 		Game.find({}, (err, games) => {
