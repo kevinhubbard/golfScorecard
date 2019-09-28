@@ -12,9 +12,11 @@ app.use(bodyParser.json());
 //load routes modules
 const index = require('./controller/index.js');
 const scores = require('./controller/scores.js');
-/*const api = require('./controller/api.js');*/
+const api = require('./controller/api.js');
+
 app.use('/', index);
 app.use('/scores', scores);
+app.use('/api', api);
 
 //start server
 app.listen(port, () => {console.log(`Listening on port: ${port}`)});
