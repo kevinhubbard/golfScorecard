@@ -56,6 +56,9 @@ th{
 #statusTable{
 	background-color: white;
 	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
 }
 
 #scoreCard {
@@ -63,6 +66,7 @@ th{
 	font-size: 20px;
 	background-color: white;
 	margin: 0 auto;
+	margin-top: 10px;
 }
 
 #gameControls{

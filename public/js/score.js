@@ -109,6 +109,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			document.getElementById('gameControls').remove();
 			document.getElementById('tableHeader').remove();
 			document.getElementById('scoreHeader').remove();
+			
+			var btn = document.createElement('BUTTON');
+			btn.innerHTML = '<a href="/">New Game</a>'
+			scoreArea.append(btn);
 
 			courseObj.totalStrokes = totalStrokes;
 			console.log(courseObj);
