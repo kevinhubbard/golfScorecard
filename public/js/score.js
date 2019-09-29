@@ -105,15 +105,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	var gameOverCheck = (currentHole, totalHoles) => {
 		if(currentHole > totalHoles) {
 			console.log('Game Over.');
+
 			//REMOVE GAME CONTROLS FROM SCORECARD
 			document.getElementById('gameControls').remove();
 			document.getElementById('tableHeader').remove();
 			document.getElementById('scoreHeader').remove();
-			
-			var btn = document.createElement('BUTTON');
-			btn.innerHTML = '<a href="/">New Game</a>'
-			scoreArea.append(btn);
 
+			//reload website(new game btn)
+			var btn = document.createElement('BUTTON');
+			btn.innerHTML = '<a href="/">New Game</a>';
+			btn.style = "margin-top: 10px";
+			scoreArea.append(btn);
+			
+			//update course obj and send json to server
 			courseObj.totalStrokes = totalStrokes;
 			console.log(courseObj);
 			fetch('/', {
