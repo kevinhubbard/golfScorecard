@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scores</title>
+</head>
+<body>
+
+<% for(i = 0; i < games.length; i++) {%>
+	<div style="border:2px solid black; display: inline-block; text-align: center;">
+	<h2 style="text-decoration: underline;"><%=games[i].courseName%></h2>
+	<h5><%=games[i].date%></h5>
+	<h4 style="text-align: center;"><span>Strokes:<%=games[i].totalStrokes%></span> <span style="padding: 0px 10px 0px 10px;">Score:<%=games[i].score%></span> <span>Holes: <%=games[i].hole.length%></span></h4>
+
+	<button onclick="this.nextElementSibling.style.display = 'block';" class="viewHide">View Scorecard</button>
+
+	<div class="card" style="display: none;">
+		<% for(h=0; h < games[i].hole.length; h++) {%>
+			
+			<p style="text-align: center;"><span>Hole:<%=games[i].hole[h].hole%></span> <span style="padding: 0px 10px 0px 10px;">Par:<%=games[i].hole[h].par%></span> <span>	Strokes:<%=games[i].hole[h].strokes%></span></p>
+			
+		<%}%>
+	</div>
+	</div>
+<%}%>
+
+
+	<!-- <script type="text/javascript">
+	
+		var vh = document.querySelectorAll('button[class^=viewHide]');
+	
+		for (var i = 0; i < vh.length; i++) {
+			vh[i].addEventListener('click', function(e) {
+				e.preventDefault();
+				const card = document.getElementsByClassName('card');
+	
+				for (var c = 0; c < card.length; c++) {
+					card[c]/
+				}
+				
+			});
+		}
+	
+	</script> -->
+</body>
+</html>
+
+
