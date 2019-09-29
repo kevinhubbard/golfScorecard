@@ -6,7 +6,7 @@ const db = mongoose.connection;
 const gameSchema = new Schema({
 	courseName: String,
 	totalHoles: Number,
-	hole: [{hole: Number, par: Number, strokes: Number}],
+	hole: [{_id: false, hole: Number, par: Number, strokes: Number}],
 	totalStrokes: Number,
 	score: Number,
 	date: { type: Date, default: Date.now }
