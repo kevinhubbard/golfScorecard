@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const uri = require('../../config/config.js').uri;
+
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://heroku_26mvj5w7:818ip97apf8gjh0eq5j7gvj5ht@ds217548.mlab.com:17548/heroku_26mvj5w7', {useNewUrlParser: true,  useUnifiedTopology: true});
+mongoose.connect(uri, {useNewUrlParser: true,  useUnifiedTopology: true});
 const db = mongoose.connection;
 
 const gameSchema = new Schema({
