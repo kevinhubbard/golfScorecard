@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const uri = require('../../config/config.js').uri;
-
 const Schema = mongoose.Schema;
-mongoose.connect(uri, {useNewUrlParser: true,  useUnifiedTopology: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true,  useUnifiedTopology: true});
 const db = mongoose.connection;
 
 const gameSchema = new Schema({
