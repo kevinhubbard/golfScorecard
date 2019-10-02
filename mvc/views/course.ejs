@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Course</title>
+</head>
+<body>
+	
+<% for (i = 0; i < course.length; i++) {%>
+	<div style="border: 2px solid black; display: inline-block;">
+	<h1>Course: <%=course[i].courseName%></h1>
+	<h1><%=course[i].date%></h1>
+	<h1>Holes: <%=course[i].totalHoles%></h1>
+	<h1>Strokes: <%=course[i].totalStrokes%></h1>
+	<h1>Score: <%=course[i].score%></h1>
+	</div>
+<%}%>
+
+</body>
+</html>

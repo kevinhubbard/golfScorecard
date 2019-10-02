@@ -13,10 +13,12 @@ app.use(bodyParser.json());
 const index = require('./mvc/controller/index.js');
 const scores = require('./mvc/controller/scores.js');
 const api = require('./mvc/controller/api.js');
+const gameSearch = require('./mvc/controller/gameSearch.js');
 
 app.use('/', index);
 app.use('/scores', scores);
 app.use('/api', api);
+app.use('/search', gameSearch);
 
 //start server
 app.listen(port, () => {console.log(`Listening on port: ${port}`)});
