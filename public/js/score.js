@@ -141,6 +141,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	var loadNewGame = (e) => {
 		e.preventDefault();
 		document.getElementById('courseInfo').style.display = 'inline-block';
+		document.getElementById('title').style.display = 'none';
 		newGame.remove();
 		searchGame.remove();
 
