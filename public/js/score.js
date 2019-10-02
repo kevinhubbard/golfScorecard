@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById('9hole').checked = false;
 	document.getElementById('18hole').checked = false;
 	document.getElementById('courseName').value = '';
+	document.getElementById('courseInfo').style.display = 'none';
 	//SAVE GAME ELEMENTS
 	const courseInfo = document.getElementById('courseInfo');
 	const scoreArea = document.getElementById('scoreArea');
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	const scoreCardBody = document.getElementById('scoreCardBody');
 	const incStrokeBtn = document.getElementById('stroke');
 	const finishHoleBtn = document.getElementById('hole');
+	const newGame = document.getElementById('newGame');
+	const searchGame = document.getElementById('searchGame');
 	//INITIALIZE GAME VARIABLES
 	let totalStrokes = 0;
 	let holeStrokes = 0;
@@ -116,6 +119,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			btn.innerHTML = '<a href="/">New Game</a>';
 			btn.style = "margin-top: 10px";
 			scoreArea.append(btn);
+
+			//reload website(new game btn)
+			var btn = document.createElement('BUTTON');
+			btn.innerHTML = '<a href="/search">Scorecards</a>';
+			btn.style = "margin-top: 10px";
+			scoreArea.append(btn);
 			
 			//update course obj and send json to server
 			courseObj.totalStrokes = totalStrokes;
@@ -128,6 +137,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 	}
 
+	//load new game 
+	var loadNewGame = (e) => {
+		e.preventDefault();
+		document.getElementById('courseInfo').style.display = 'inline-block';
+		newGame.remove();
+		searchGame.remove();
+
+	}
+
 
 	//INCREASE STROKE EVENT LISTENER
 	incStrokeBtn.addEventListener('click', increaseStroke);
@@ -135,5 +153,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	finishHoleBtn.addEventListener('click', calculateScore);
 	//SUBMIT COURSE INFO AND START GAME EVENT LISTENER
 	courseInfo.addEventListener('submit', startGame);
+	//start new game
+	newGame.addEventListener('click', loadNewGame);
+	//search game
+	searchGame.addEventListener('click', (e)=>{
+		e.preventDefault();
+		window.location.href += 'search'; 
+	});
 
 });

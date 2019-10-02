@@ -12,8 +12,9 @@ router.get('/', (req,res) => {
 			let course = games[i].courseName.toLowerCase();
 
 			if(list.includes(course)) {
-				console.log('couse included');
-			} else {
+				//nothing needs to be done
+			}
+			else {
 				list.push(course);
 			}
 		}
@@ -27,8 +28,6 @@ router.get('/courses', (req,res) => {
 	console.log(req.query.course);
 	Game.find({'courseName': new RegExp('^'+req.query.course+'$', "i")}, (err, list) => {
 		if(err) return res.status(500).send('Error occurred: database error.');
-
-		console.log(list);
 		res.render('course', {course: list});
 	});
 });

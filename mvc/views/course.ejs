@@ -4,10 +4,12 @@
 	<title>Course</title>
 </head>
 <body>
+
+	<h1><%=course[0].courseName%></h1>
 	
 <% for (i = 0; i < course.length; i++) {%>
 	<div style="border: 2px solid black; display: inline-block;">
-	<h1>Course: <%=course[i].courseName%></h1>
+	
 	<h1><%=course[i].date%></h1>
 	<h1>Holes: <%=course[i].totalHoles%></h1>
 	<h1>Strokes: <%=course[i].totalStrokes%></h1>
