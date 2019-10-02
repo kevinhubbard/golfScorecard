@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 	event.preventDefault();
 	//disable enter key
-	window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+	window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){e.preventDefault();return false;}},true);
 	//CLEAR COURSE INFO ON PAGE RELOAD
 	document.getElementById('9hole').checked = false;
 	document.getElementById('18hole').checked = false;
