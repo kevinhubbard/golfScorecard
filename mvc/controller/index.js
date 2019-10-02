@@ -9,7 +9,7 @@ router.get('/', (req,res) => {
 router.post('/', (req,res) => {
 	const newGame = new Game({
 		date: Date.now(), 
-		courseName: req.body.courseName, 
+		courseName: req.body.courseName.toLowerCase(), 
 		totalHoles: req.body.totalHoles, 
 		hole: req.body.hole, 
 		totalStrokes: req.body.totalStrokes, 

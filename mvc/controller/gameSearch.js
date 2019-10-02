@@ -24,8 +24,8 @@ router.get('/', (req,res) => {
 });
 
 router.get('/courses', (req,res) => {
-	
-	Game.find({'courseName': req.query.course}, (err, list) => {
+	console.log(req.query.course);
+	Game.find({'courseName': new RegExp('^'+req.query.course+'$', "i")}, (err, list) => {
 		if(err) return res.status(500).send('Error occurred: database error.');
 
 		console.log(list);
