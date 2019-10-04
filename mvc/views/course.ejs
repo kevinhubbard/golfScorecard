@@ -3,14 +3,15 @@
 <head>
 	<title>Course</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../styles/date.css">
 <body>
 
 	<h1><%=course[0].courseName%></h1>
 	
 <% for (i = 0; i < course.length; i++) {%>
-	<div style="border: 2px solid black; display: inline-block;">
-	
-	<h1><%=course[i].date%></h1>
+	<div id="game">
+	<% var d = new Date(course[i].date).toLocaleDateString(); %>
+	<h1>Date: <%=d%></h1>
 	<h1>Holes: <%=course[i].totalHoles%></h1>
 	<h1>Strokes: <%=course[i].totalStrokes%></h1>
 	<h1>Score: <%=course[i].score%></h1>
