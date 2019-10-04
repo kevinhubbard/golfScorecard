@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 			//reload website(new game btn)
 			var btn = document.createElement('BUTTON');
-			btn.innerHTML = '<a href="/search">Scorecards</a>';
+			btn.innerHTML = '<a href="/search">Search</a>';
 			btn.style = "margin-top: 10px";
 			scoreArea.append(btn);
 			

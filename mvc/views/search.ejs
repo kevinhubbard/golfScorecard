@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Course List</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/styles/search.css">
+<body>
+<div class="container jumbotron">
+	<h1>Search games by course.</h1>
+	<form action="/search/courses" method="get">
+	<select name="course">
+		<% for (i=0; i < courses.length; i++) {%>
+			<option value="<%=courses[i]%>"><%=courses[i]%></option>
+		<%}%>
+	</select>
+	<button type="submit" class="btn btn-primary">Search</button>
+	</form>
+</div>
+</body>
+</html>

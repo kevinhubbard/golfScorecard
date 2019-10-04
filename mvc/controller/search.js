@@ -18,13 +18,13 @@ router.get('/', (req,res) => {
 				list.push(course);
 			}
 		}
-		res.render('gameSearch', {courses: list});
+		res.render('search', {courses: list});
 		
 	});
 
 });
 
-router.get('/courses', (req,res) => {
+router.get('/course', (req,res) => {
 	console.log(req.query.course);
 	Game.find({'courseName': new RegExp('^'+req.query.course+'$', "i")}, (err, list) => {
 		if(err) return res.status(500).send('Error occurred: database error.');
