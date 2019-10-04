@@ -6,16 +6,34 @@
 <link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/styles/search.css">
 <body>
-<div class="container jumbotron">
-	<h1>Search games by course.</h1>
-	<form action="/search/courses" method="get">
-	<select name="course">
-		<% for (i=0; i < courses.length; i++) {%>
-			<option value="<%=courses[i]%>"><%=courses[i]%></option>
-		<%}%>
-	</select>
-	<button type="submit" class="btn btn-primary">Search</button>
-	</form>
+<div class="container">
+	<div id="search" class="jumbotron">
+		<div>
+			<h1 id="title">Search by</h1>
+			<form action="/search/course" method="get">
+			<h5 id="course">Course:</h5>
+			<select class="form-control-sm" name="course">
+				<% for (i=0; i < courses.length; i++) {%>
+					<option value="<%=courses[i]%>"><%=courses[i]%></option>
+				<%}%>
+			</select>
+			<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+		</div>
+			<hr>
+		<div>
+			<form action="/search/date" method="get">
+				<h5 id="date">Date:</h5>
+				<select class="form-control-sm" name="date">
+					<option></option>
+				</select>
+				<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+		</div>
+			<hr>
+		<button class="btn btn-success"><a href="/">Home<a/></button>
+
+	</div>
 </div>
 </body>
 </html>
