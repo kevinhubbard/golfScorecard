@@ -3,20 +3,22 @@
 <head>
 	<title>Course</title>
 </head>
-<link rel="stylesheet" type="text/css" href="../styles/date.css">
+<link rel="stylesheet" type="text/css" href="../../bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../styles/course.css">
 <body>
-
-	<h1><%=course[0].courseName%></h1>
-	
-<% for (i = 0; i < course.length; i++) {%>
-	<div id="game">
-	<% var d = new Date(course[i].date).toLocaleDateString(); %>
-	<h1>Date: <%=d%></h1>
-	<h1>Holes: <%=course[i].totalHoles%></h1>
-	<h1>Strokes: <%=course[i].totalStrokes%></h1>
-	<h1>Score: <%=course[i].score%></h1>
+<div class="container">
+	<h1 id="courseName"><%=course[0].courseName%></h1>
+	<div class="row">
+		<% for (i = 0; i < course.length; i++) {%>
+			<div class="col" id="game">
+			<% var d = new Date(course[i].date).toLocaleDateString(); %>
+			<h1><%=d%></h1>
+			<h1>Holes: <%=course[i].totalHoles%></h1>
+			<h1>Strokes: <%=course[i].totalStrokes%></h1>
+			<h1>Score: <%=course[i].score%></h1>
+			</div>
+		<%}%>
 	</div>
-<%}%>
-
+</div>
 </body>
 </html>
