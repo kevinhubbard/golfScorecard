@@ -141,11 +141,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	//load new game 
 	var loadNewGame = (e) => {
 		e.preventDefault();
+		document.getElementById('startGame').disabled = true;
 		document.getElementById('courseInfo').style.display = 'inline-block';
 		document.getElementById('title').style.display = 'none';
 		newGame.remove();
 		searchGame.remove();
 
+		var radios = document.querySelectorAll('.holeSelect');
+		for(const radio of radios) {
+			radio.addEventListener('click', ()=>{
+				document.getElementById('startGame').disabled = false;
+			});
+		}
 	}
 
 
