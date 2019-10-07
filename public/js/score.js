@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	let holeStrokes = 0;
 	let score = 0;
 	let holeNum = 1;
-	//HIDE SCORECARD TILL INFO IS ENTERED
-	scoreArea.style.visibility = 'hidden';
 
 
 	//FUNCTION THAT INCREASES STROKE COUNT ON BUTTON CLICK
@@ -66,11 +64,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	};
 
 
-	//FUNCTION THAT SHOWS SCORECARD / HIDES COURSE INFO
+	//FUNCTION THAT SHOWS SCOREAREA / HIDES COURSE INFOFORM
 	var startGame = (e) => {
 		e.preventDefault();
+		//DISABLE FINISH HOLE BTN TILL STROKE IS MADE
 		finishHoleBtn.disabled = true;
-
+		//IF NO COURSE NAME IS ENTERED CREATE OBJECT WITH GOLFCARD AS NAME
 		if(document.getElementById('courseName').value === ''){
 			courseName = 'Golfcard';
 			scoreCardHead.innerHTML = courseName;
@@ -78,12 +77,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			courseName = document.getElementById('courseName').value;
 			scoreCardHead.innerHTML = courseName;
 		}
-
-		
-		scoreArea.style.visibility = 'visible';
+		//UPDATE SCORECARD TABLE WITH COURSE NAME AND # OF HOLES
+		document.getElementById('appendMe').innerHTML = courseName;
 		holeEle.innerHTML = holeNum;
 
-
+		scoreArea.style.display = 'inline-block';
+		
 		courseObj = {
 			courseName: courseName,
 			totalHoles: parseInt(document.querySelector('input[name="gameLength"]:checked').value),
@@ -108,33 +107,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	//GAME OVER CHECK GETS CALLED AFTER SCORECARD UPDATE
 	var gameOverCheck = (currentHole, totalHoles) => {
 		if(currentHole > totalHoles) {
-			console.log('Game Over.');
-
-			//REMOVE GAME CONTROLS FROM SCORECARD
-			document.getElementById('gameControls').remove();
-			document.getElementById('tableHeader').remove();
-			document.getElementById('scoreHeader').remove();
-
-			//reload website(new game btn)
-			var btn = document.createElement('BUTTON');
-			btn.innerHTML = '<a href="/">New Game</a>';
-			btn.style = "margin-top: 10px";
-			scoreArea.append(btn);
-
-			//reload website(new game btn)
-			var btn = document.createElement('BUTTON');
-			btn.innerHTML = '<a href="/search">Search</a>';
-			btn.style = "margin-top: 10px";
-			scoreArea.append(btn);
-			
-			//update course obj and send json to server
-			courseObj.totalStrokes = totalStrokes;
-			console.log(courseObj);
-			fetch('/', {
-				method: "POST",
-				body: JSON.stringify(courseObj),
-				headers: { 'Content-Type': 'application/json'}
-			});
+			displayResults();
+			postResults();
 		}
 	}
 
@@ -153,6 +127,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				document.getElementById('startGame').disabled = false;
 			});
 		}
+	}
+
+	//GETS GALLED WHEN GAMEOVERCHECK = TRUE
+	var displayResults = () => {
+		//REMOVE GAME CONTROLS FROM SCORECARD
+		document.getElementById('gameControls').remove();
+		document.getElementById('tableHeader').remove();
+		document.getElementById('scoreHeader').remove();
+		scorecardEle.style.display = 'inline-block';
+
+		//new game btn
+		var ngbtn = document.createElement('BUTTON');
+		ngbtn.className = 'test btn btn-success';
+		ngbtn.innerHTML = '<a href="/">New Game</a>';
+		ngbtn.style.margin = "10px 2px 10px 2px";
+		scoreArea.append(ngbtn);
+
+		//search game btn
+		var sgbtn = document.createElement('BUTTON');
+		sgbtn.className = 'test btn btn-success';
+		sgbtn.innerHTML = '<a href="/search">Search</a>';
+		sgbtn.style.margin = "10px 2px 10px 2px";
+		scoreArea.append(sgbtn);
+	}
+
+	//GETS GALLED WHEN GAMEOVERCHECK = TRUE
+	var postResults = () => {
+		//UPDATES COURSE OBJ AND POSTS OBJ TO SERVER
+		courseObj.totalStrokes = totalStrokes;
+
+		fetch('/', {
+			method: "POST",
+			body: JSON.stringify(courseObj),
+			headers: { 'Content-Type': 'application/json'}
+		});
 	}
 
 
