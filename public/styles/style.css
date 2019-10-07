@@ -3,7 +3,7 @@ body{
 		background-size: cover;
 }
 #app{
-	width: 400px;
+	width: 350px;
 	margin: 0 auto;
 }
 
@@ -41,7 +41,7 @@ body{
 
 #scoreArea{
 	display: none;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	text-align: center;
 }
 #status{

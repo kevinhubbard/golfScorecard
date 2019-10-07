@@ -28,10 +28,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	let holeNum = 1;
 
 
-
-
-
-
 	//FUNCTION THAT INCREASES STROKE COUNT ON BUTTON CLICK
 	var increaseStroke = (e) => {
 		e.preventDefault();
@@ -84,7 +80,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		//UPDATE SCORECARD TABLE WITH COURSE NAME AND # OF HOLES
 		document.getElementById('appendMe').innerHTML = courseName;
 		holeEle.innerHTML = holeNum;
-
+		document.getElementById('app').style.width = '250px';
 		scoreArea.style.display = 'inline-block';
 		var date = new Date().toLocaleDateString();
 
