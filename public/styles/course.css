@@ -7,3 +7,16 @@
 	margin: 10px 15px 10px 15px;
 	display: inline-block;
 }
+
+nav{
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+}
+
+a{
+	color: white;
+}
+a:hover{
+	color:white;
+}

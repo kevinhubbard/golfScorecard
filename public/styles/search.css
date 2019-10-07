@@ -3,14 +3,22 @@ html{
 	height: 100%;
 }
 body{
-	background-image: url('../images/golfBackground.jpg');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+		background: url(/images/golfBackground.jpg) no-repeat center center fixed;
+		background-size: cover;
+
+/* 	background-image: url('../images/golfBackground.jpg');
+background-repeat: no-repeat;
+background-size: 100% 100%; */
+}
+nav{
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
 }
 
 #search{
 	text-align: center;
-	margin-top: 20%;
+	margin-top: 50px;
 }
 
 #title{

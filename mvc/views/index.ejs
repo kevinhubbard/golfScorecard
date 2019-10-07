@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Golf Score</title>
 	<link rel="stylesheet" type="text/css" href="/styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/styles/style.css">
 	<script type="text/javascript" src="/js/score.js"></script>
 </head>
@@ -12,8 +13,10 @@
 	<div id="app">
 		<div id="infoForm">
 			<h1 id='title'>Golfcard</h1>
-			<input id="newGame" type="button" name="newGame" value="New Game">
-			<input id="searchGame" type="button" name="search" value="Search Games">
+<input class="btn btn-success" id="newGame" type="button" name="newGame" value="New Game">
+<input class="btn btn-success" id="searchGame" type="button" name="search" value="Search Games">
+<!-- 			<button class="btn" id="newGame" name="newGame">New Game</button>
+<button class="btn" id='searchGame' name="search">Search Games</button> -->
 			<form id="courseInfo">
 				<input type="text" id="courseName" placeholder="Course Name"> </br>
 				<input type="radio" id="9hole" class='holeSelect' name="gameLength" value="9">
