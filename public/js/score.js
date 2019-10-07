@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	let holeNum = 1;
 
 
+
+
+
+
 	//FUNCTION THAT INCREASES STROKE COUNT ON BUTTON CLICK
 	var increaseStroke = (e) => {
 		e.preventDefault();
@@ -82,11 +86,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		holeEle.innerHTML = holeNum;
 
 		scoreArea.style.display = 'inline-block';
-		
+		var date = new Date().toLocaleDateString();
+
 		courseObj = {
 			courseName: courseName,
 			totalHoles: parseInt(document.querySelector('input[name="gameLength"]:checked').value),
-			hole: []
+			hole: [],
+			date: date
 		}
 		
 		document.getElementById('infoForm').remove();
@@ -107,6 +113,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	//GAME OVER CHECK GETS CALLED AFTER SCORECARD UPDATE
 	var gameOverCheck = (currentHole, totalHoles) => {
 		if(currentHole > totalHoles) {
+
+			courseObj.totalStrokes = totalStrokes;
+
 			displayResults();
 			postResults();
 		}
@@ -155,8 +164,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	//GETS GALLED WHEN GAMEOVERCHECK = TRUE
 	var postResults = () => {
 		//UPDATES COURSE OBJ AND POSTS OBJ TO SERVER
-		courseObj.totalStrokes = totalStrokes;
-
+		console.log(courseObj);
 		fetch('/', {
 			method: "POST",
 			body: JSON.stringify(courseObj),

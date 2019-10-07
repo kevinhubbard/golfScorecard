@@ -15,22 +15,26 @@
 		<div>
 			<button id="home" class="btn btn-success"><a href="/">Home<a/></button>
 			<h1 id="title">Search by</h1>
+
 			<form action="/search/course" method="get">
-			<h5 id="course">Course:</h5>
-			<select class="form-control-sm" name="course">
-				<% for (i=0; i < courses.length; i++) {%>
-					<option value="<%=courses[i]%>"><%=courses[i]%></option>
-				<%}%>
-			</select>
-			<button type="submit" class="btn btn-primary" id="courseSearch">Search</button>
+				<h5 id="course">Course:</h5>
+				<select class="form-control-sm" name="course">
+					<% for (i=0; i < courses.length; i++) {%>
+						<option value="<%=courses[i]%>"><%=courses[i]%></option>
+					<%}%>
+				</select>
+				<button type="submit" class="btn btn-primary" id="courseSearch">Search</button>
 			</form>
+
 		</div>
 			<hr>
 		<div>
 			<form action="/search/date" method="get">
 				<h5 id="date">Date:</h5>
 				<select class="form-control-sm" name="date">
-					<option></option>
+					<% for(d = 0; d < date.length; d++) {%>
+						<option value="<%= date[d] %>"><%= date[d] %></option>
+					<%}%>	
 				</select>
 				<button type="submit" class="btn btn-primary" id="dateSearch">Search</button>
 			</form>

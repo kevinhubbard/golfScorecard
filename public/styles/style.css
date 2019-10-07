@@ -93,8 +93,7 @@ th{
 	#app{
 		margin: 0 auto;
 		margin-top: 10px;
-		width: 75%;/* 
-		height: 100%; */
+		width: 75%;
 	}
 
 	#courseInfo{
@@ -123,7 +122,6 @@ th{
 	}
 
 	#scoreArea{
-		/* border: 2px solid red; */
 		width:95%;
 		top: 0px;
 	}
@@ -131,7 +129,6 @@ th{
 	#gameControls{
 		display: block;
 		margin: 0 auto;
-		/* border: 2px solid red; */
 
 	}
 	

@@ -9,7 +9,7 @@ const gameSchema = new Schema({
 	hole: [{_id: false, hole: Number, par: Number, strokes: Number}],
 	totalStrokes: Number,
 	score: Number,
-	date: { type: Date, default: Date.now }
+	date: String
 });
 
 const Game = db.model('Game', gameSchema);
