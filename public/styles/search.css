@@ -5,15 +5,11 @@ html{
 body{
 		background: url(/images/golfBackground.jpg) no-repeat center center fixed;
 		background-size: cover;
-
-/* 	background-image: url('../images/golfBackground.jpg');
-background-repeat: no-repeat;
-background-size: 100% 100%; */
 }
-nav{
-	width: 100%;
-	text-align: center;
-	margin-top: 50px;
+
+#home{
+	margin-top: -30px;
+	margin-bottom: 30px;
 }
 
 #search{
@@ -42,4 +38,18 @@ a{
 a:hover{
 	color: white;
 	text-decoration: none;
+}
+
+@media only screen and (max-width: 350px) {
+	#courseSearch{
+		display: block;
+		margin: 0 auto;
+		margin-top: 10px;
+	}	
+/* 	#dateSearch{
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+} */
+
 }

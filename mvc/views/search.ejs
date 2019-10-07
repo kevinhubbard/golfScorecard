@@ -5,15 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Course List</title>
 </head>
-<link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/styles/search.css">
 <body>
-<nav>
-	<button class="btn btn-success"><a href="/">Home<a/></button>
-</nav>
+
 <div class="container">
 	<div id="search" class="jumbotron">
+
 		<div>
+			<button id="home" class="btn btn-success"><a href="/">Home<a/></button>
 			<h1 id="title">Search by</h1>
 			<form action="/search/course" method="get">
 			<h5 id="course">Course:</h5>
@@ -22,7 +22,7 @@
 					<option value="<%=courses[i]%>"><%=courses[i]%></option>
 				<%}%>
 			</select>
-			<button type="submit" class="btn btn-primary">Search</button>
+			<button type="submit" class="btn btn-primary" id="courseSearch">Search</button>
 			</form>
 		</div>
 			<hr>
@@ -32,7 +32,7 @@
 				<select class="form-control-sm" name="date">
 					<option></option>
 				</select>
-				<button type="submit" class="btn btn-primary">Search</button>
+				<button type="submit" class="btn btn-primary" id="dateSearch">Search</button>
 			</form>
 		</div>
 		
