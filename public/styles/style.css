@@ -105,14 +105,16 @@ th{
 	#startGame{
 		width: 90%;
 		height: 55px;
-		font-size: 30px;
+		font-size: 25px;
 	}
 	
 	label{
 		font-size: 36px;
 	}
 
-
+	#newGame{
+		margin-bottom: 5px;
+	}
 
 	#scoreArea{
 		/* border: 2px solid red; */
