@@ -86,8 +86,8 @@ th{
 	#app{
 		margin: 0 auto;
 		margin-top: 10px;
-		width: 75%;
-		height: 100%;
+		width: 75%;/* 
+		height: 100%; */
 	}
 
 	#courseInfo{
